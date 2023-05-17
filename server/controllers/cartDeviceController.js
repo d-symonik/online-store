@@ -1,19 +1,21 @@
 const ApiError = require("../error/ApiError");
-const {Cart, CartDevice} = require("../models/models");
+const {Cart, CartDevice, Device} = require("../models/models");
+const {login} = require("./userController");
 
 module.exports = {
     add: async (req, res, next) => {
         try {
-            const {id} = req.query;
+            const {deviceId} = req.body;
             const user = req.user;
 
             const userCart = await Cart.findOne({where: {userId: user.id}});
             const cartDevice = await CartDevice.create({
                 cartId: userCart.id,
-                deviceId: id,
+                deviceId: deviceId,
 
             });
             return res.json(cartDevice);
+
         } catch (err) {
             return next(ApiError.badRequestError(err.message));
         }
@@ -25,10 +27,12 @@ module.exports = {
 
             const userCart = await Cart.findOne({where: {userId: user.id}});
 
-            const removedDevice = await CartDevice.destroy({where:{
+            const removedDevice = await CartDevice.destroy({
+                where: {
+                    id,
                     cartId: userCart.id,
-                    deviceId: id,
-                }})
+                }
+            })
             return res.json({message: `Device successfully delete ${removedDevice}`});
         } catch (err) {
             return next(ApiError.badRequestError(err.message));
@@ -39,7 +43,10 @@ module.exports = {
             const user = req.user;
             const userCart = await Cart.findOne({where: {userId: user.id}});
 
-            const cartDevices = await CartDevice.findAll({where: {cartId: userCart.id}});
+            const cartDevices = await CartDevice.findAll({
+                where: {cartId: userCart.id},
+                include: [{model: Device, as: 'device'}]
+            });
             return res.json(cartDevices);
         } catch (err) {
             return next(ApiError.badRequestError(err.message));

@@ -1,0 +1,22 @@
+.payment{
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 20rem);
+  max-width: 100%;
+  section{
+    width: 60%;
+    height: 100%;
+    padding: 2rem;
+    h1{
+      text-align: center;
+      font-size: 2rem;
+    }
+    p{
+      margin: 1rem;
+      line-height: 2;
+    }
+    a{
+      color: #9f9f9f;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.device {
+  margin: 2.5% 5%;
+  text-align: center;
+  background-color: #313131;
+  border-radius: 5px;
+  cursor: pointer;
+  .card {
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+
+    img {
+
+      color: #444444;
+      background-color: white;
+      padding: 5%;
+      border-radius: 5px;
+      height: auto;
+      max-height: 250px;
+      width: auto;
+      max-width: 250px;
+      object-fit: cover;
+    }
+    .body{
+
+      border-top: 1px solid #969696;
+      margin: 1rem 0;
+      button{
+        margin-top: 1rem;
+        background-color: transparent;
+        &:hover{
+          background-color: #232323;
+        }
+      }
+    }
+
+  }
+
+
+}

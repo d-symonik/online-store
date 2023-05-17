@@ -5,6 +5,7 @@ module.exports = {
     create: async (req, res, next) => {
         try {
             const {name} = req.body;
+
             if (!name) {
                 return next(ApiError.badRequestError('Incorrect name of type'));
             }

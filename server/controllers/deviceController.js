@@ -35,7 +35,6 @@ module.exports = {
                 })
 
             }
-
             return res.json(device);
         } catch (e) {
             return next(ApiError.badRequestError(e.message))
@@ -52,7 +51,7 @@ module.exports = {
                 typeId = JSON.parse(typeId)
             }
             page = page || 1;
-            limit = limit || 9;
+            limit = limit || 12;
 
             let offset = page * limit - limit;
 

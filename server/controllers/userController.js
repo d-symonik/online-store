@@ -25,7 +25,10 @@ module.exports = {
             let {email, password, role} = req.body;
 
             await userSchema.validate({email, password});
-
+            const candidate = await User.findOne({where: {email}})
+            if (candidate) {
+                return next(ApiError.badRequestError('User with this email already exist'))
+            }
             const hashPassword = await bcrypt.hash(password, 10);
 
             const user = await User.create({email, password: hashPassword, role});
@@ -50,7 +53,7 @@ module.exports = {
             const user = await User.findOne({where: {email}});
 
             if (!user) {
-                return next(ApiError.badRequestError('User not found'));
+                return next(ApiError.badRequestError('User with this email not found'));
             }
             let comparePassword = bcrypt.compareSync(password, user.password);
 
@@ -67,11 +70,13 @@ module.exports = {
         }
     },
     auth: async (req, res, next) => {
-        const {id} = req.query;
-        if (!id) {
-            return next(ApiError.badRequestError('ID not found.'));
+        try {
+            const token = generateJWT(req.user.id, req.user.email, req.user.role)
+            return res.json({token})
         }
-        res.json({id});
+        catch (e) {
+            return next(ApiError.badRequestError(e.message));
+        }
 
     },
 }

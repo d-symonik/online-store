@@ -1,0 +1,10 @@
+.pagination {
+  padding: 0 1.25rem 1rem;
+  grid-column: 2/3;
+  grid-row: auto ;
+  text-align: center;
+
+  button {
+    margin-right: .5rem;
+  }
+}
