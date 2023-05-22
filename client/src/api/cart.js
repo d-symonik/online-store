@@ -10,7 +10,10 @@ export const removeFromCart = async (id) => {
     const {data} = await $authHost.delete(`api/cart/${id}`)
     return data;
 };
-
+export const clearTheCart = async () => {
+    const {data} = await $authHost.delete(`api/cart/`)
+    return data;
+};
 export const getAllDeviceFromCart = async () => {
     const {data} = await $authHost.get('api/cart');
     return data;

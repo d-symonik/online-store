@@ -1,0 +1,39 @@
+.home {
+
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 20rem);
+  max-width: 100%;
+
+  section {
+    width: 60%;
+    height: 100%;
+    padding: 1rem;
+    .background{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      background-size: cover;
+      background-image: url("https://images.unsplash.com/photo-1468495244123-6c6c332eeece?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1021&q=80");
+      h1{
+        text-align: center;
+        font-size: 4rem;
+        margin: 1rem;
+
+      }
+      button{
+        background-color: rgba(59, 59, 59, 0.77);
+
+        font-size: 1.25rem;
+        &:hover{
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

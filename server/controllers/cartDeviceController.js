@@ -52,5 +52,21 @@ module.exports = {
             return next(ApiError.badRequestError(err.message));
         }
     },
+    removeAll:async (req, res, next) => {
+        try {
+            const user = req.user;
+
+            const userCart = await Cart.findOne({where: {userId: user.id}});
+
+            const removedDevice = await CartDevice.destroy({
+                where: {
+                    cartId: userCart.id,
+                }
+            })
+            return res.json({message: `Device successfully delete ${removedDevice}`});
+        } catch (err) {
+            return next(ApiError.badRequestError(err.message));
+        }
+    },
 
 }

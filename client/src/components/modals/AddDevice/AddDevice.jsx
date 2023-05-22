@@ -122,14 +122,7 @@ const AddDevice = ({onClose}) => {
             console.log(enteredImage)
             validateDeviceForm();
             const device = new FormData();
-            // const device = {
-            //     name: enteredName,
-            //     price: +enteredPrice,
-            //     deviceTypeId: +selectedType,
-            //     deviceBrandId: +selectedBrand,
-            //     image: enteredImage,
-            //     info: JSON.stringify(deviceInfo),
-            // };
+
             device.append('name', enteredName)
             device.append('price', `${+enteredPrice}`)
             device.append('image', enteredImage)
@@ -138,7 +131,7 @@ const AddDevice = ({onClose}) => {
             device.append('info', JSON.stringify(deviceInfo))
             console.log(device)
             createDevice(device).then(data=>{
-                alert(`Successful created a device ${data}`)
+                alert(`Successful created a device ${enteredName}`)
                 setSelectedType(1)
                 setSelectedBrand(1)
                 setEnteredName('')

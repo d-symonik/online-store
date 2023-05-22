@@ -1,0 +1,65 @@
+.submit {
+
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 20rem);
+  width: 100%;
+
+  section {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      margin: 2rem;
+      font-size: 2rem;
+    }
+
+    form {
+      width: 80%;
+      margin: 1rem 0 1rem;
+
+      input, label {
+        width: 70%;
+      }
+
+      label {
+        font-size: 1.25rem;
+        margin-top: 1rem;
+      }
+
+      input {
+
+        margin: 1rem 0 0 0;
+
+        padding: 1rem;
+        height: 3rem;
+
+        background-color: transparent;
+        color: inherit;
+        border-color: #969696;
+
+        font-weight: 500;
+
+        &:hover {
+          background-color: #444444;
+          border: 1.5px solid white;
+        }
+      }
+
+    }
+    .actions{
+      display: flex;
+      justify-content: center;
+      margin: 1rem;
+      button{
+        width: 60%;
+        height: 3rem;
+        margin-bottom:2rem ;
+      }
+    }
+
+  }
+}

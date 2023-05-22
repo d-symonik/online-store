@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {
     ABOUT_US_ROUTE,
     ADMIN_ROUTE,
-    CART_ROUTE,
+    CART_ROUTE, HOME_ROUTE,
     LOGIN_ROUTE, PAYMENT_ROUTE,
     PRODUCTS_ROUTE
 } from "../../../util/constants/router-paths.js";
@@ -23,6 +23,9 @@ const Navbar = () => {
     return (
         <nav className={classes.navbar}>
             <ul>
+                <li>
+                    <NavLink to={HOME_ROUTE}>Home</NavLink>
+                </li>
                 <li>
                     <NavLink to={PRODUCTS_ROUTE}>Products</NavLink>
                 </li>
