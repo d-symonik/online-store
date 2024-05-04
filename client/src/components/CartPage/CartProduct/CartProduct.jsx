@@ -12,6 +12,7 @@ import {NotificationColor} from "../../../util/constants/notificationColor.js";
 const CartProduct = ({device}) => {
     const deviceInfo = device.device;
     const dispatch = useDispatch();
+    console.log(device)
     const removeItemFromCart = () => {
         dispatch(cartActions.removeFromCart(device.id));
         removeFromCart(device.id).then(()=>{

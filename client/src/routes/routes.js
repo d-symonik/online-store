@@ -9,12 +9,10 @@ import {
     DEVICE_ROUTE,
     LOGIN_ROUTE,
     REGISTRATION_ROUTE,
-    PRODUCTS_ROUTE, ABOUT_US_ROUTE, PAYMENT_ROUTE, SUBMIT_ROUTE, HOME_ROUTE
+    PRODUCTS_ROUTE, ABOUT_US_ROUTE, PAYMENT_ROUTE
 } from "../util/constants/router-paths.js";
 import AboutUs from "../pages/AboutUs.jsx";
 import Payment from "../pages/Payment.jsx";
-import Submit from "../pages/Submit.jsx";
-import Home from "../pages/Home.jsx";
 
 export const authorizedRoutes = [
     {
@@ -25,17 +23,9 @@ export const authorizedRoutes = [
         path: CART_ROUTE,
         Component: Cart
     },
-    {
-        path: SUBMIT_ROUTE,
-        Component: Submit
-    },
 ]
 
 export const publicRoutes = [
-    {
-        path: HOME_ROUTE,
-        Component: Home
-    },
     {
         path: PRODUCTS_ROUTE,
         Component: Products

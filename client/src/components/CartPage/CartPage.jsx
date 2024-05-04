@@ -8,7 +8,7 @@ import {cartActions} from "../../store/cartSlice/cart-slice.js";
 import Spinner from "../UI/Spinner/Spinner.jsx";
 import {NavLink, useNavigate} from "react-router-dom";
 import Button from "../UI/Button/Button.jsx";
-import {PRODUCTS_ROUTE, SUBMIT_ROUTE} from "../../util/constants/router-paths.js";
+import {PRODUCTS_ROUTE} from "../../util/constants/router-paths.js";
 
 const CartPage = () => {
     const cartDevices = useSelector(state => state.cart.cartDevices);
@@ -31,10 +31,9 @@ const CartPage = () => {
     }, []);
 
     const submitCart = ()=>{
-        navigate(SUBMIT_ROUTE);
+        alert('Congratulations');
+        navigate(PRODUCTS_ROUTE);
     }
-    console.log(cartDevices)
-    const totalAmount = cartDevices ? cartDevices.reduce((acc, value) => acc + value.device.price, 0) : null;
     return (
         <section className={classes.cart}>
             <Card className={classes.wrapper}>
@@ -42,9 +41,8 @@ const CartPage = () => {
                 {isLoading && <Spinner/>}
                 {!isLoading && cartDevices.length!==0 &&<>
                     {cartDevices.map(item => <CartProduct key={item.id} device={item}/>)}
-                    <p className={classes.total}>Total: ${totalAmount}</p>
                     <div className={classes.actions}>
-                        <Button onClick={submitCart}>Confirm</Button>
+                        <Button onClick={submitCart}> Pay</Button>
                     </div>
                 </>}
                 {

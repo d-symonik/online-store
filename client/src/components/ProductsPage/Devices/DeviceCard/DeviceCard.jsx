@@ -4,7 +4,7 @@ import Image from '../../../../assets/cart.png';
 import Button from "../../../UI/Button/Button.jsx";
 import {useNavigate, useParams} from "react-router-dom";
 import {CART_ROUTE, DEVICE_ROUTE} from "../../../../util/constants/router-paths.js";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {cartActions} from "../../../../store/cartSlice/cart-slice.js";
 import {addToCart} from "../../../../api/cart.js";
 import uiSlice, {uiActions} from "../../../../store/uiSlice/ui-slice.js";
@@ -12,8 +12,6 @@ import uiSlice, {uiActions} from "../../../../store/uiSlice/ui-slice.js";
 const DeviceCard = ({device}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const user = useSelector(state => state.user);
-
     const goToDeviceInfoPage = () => {
         navigate(`${DEVICE_ROUTE}/${device.id}`)
     }
@@ -41,7 +39,7 @@ const DeviceCard = ({device}) => {
                 <div className={classes.body}>
                     <h2>{device.name}</h2>
                     <p>{device.price}$</p>
-                    {user.isAuth && <Button onClick={addToCartHandler}>Add to Cart</Button>}
+                    <Button onClick={addToCartHandler}>Add to Cart</Button>
                 </div>
 
             </div>
