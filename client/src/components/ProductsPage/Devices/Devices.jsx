@@ -6,7 +6,7 @@ import {getBrands, getDevices} from "../../../api/products.js";
 import {productActions} from "../../../store/productSlice/product-slice.js";
 import Spinner from "../../UI/Spinner/Spinner.jsx";
 import PaginationBar from "../../UI/PaginationBar/PaginationBar.jsx";
-///============== зробити фільтрацію і пагінацію
+
 const Devices = () => {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products);
